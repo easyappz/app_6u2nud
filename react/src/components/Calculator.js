@@ -11,6 +11,8 @@ const Calculator = () => {
   const handleNumberClick = (value) => {
     if (display === '0' && value !== '.') {
       setDisplay(value);
+    } else if (value === '.' && display.includes('.')) {
+      return;
     } else {
       setDisplay(display + value);
     }
@@ -21,7 +23,6 @@ const Calculator = () => {
     setPreviousValue(parseFloat(display));
     setOperation(op);
     setWaitingForSecondValue(true);
-    setDisplay('0');
   };
 
   const calculateResult = () => {
@@ -64,12 +65,23 @@ const Calculator = () => {
     setWaitingForSecondValue(false);
   };
 
+  const handleBackspace = () => {
+    if (display.length === 1 || (display.length === 2 && display.startsWith('-'))) {
+      setDisplay('0');
+    } else {
+      setDisplay(display.slice(0, -1));
+    }
+  };
+
   return (
     <div className="calculator">
       <div className="calculator-display">{display}</div>
       <div className="calculator-buttons">
         <Button.Button className="calculator-button" onClick={handleClear} variant="outline">
           C
+        </Button.Button>
+        <Button.Button className="calculator-button" onClick={handleBackspace} variant="outline">
+          ⌫
         </Button.Button>
         <Button.Button className="calculator-button" onClick={() => handleOperationClick('/')} variant="outline">
           ÷

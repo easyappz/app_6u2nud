@@ -1,23 +1,23 @@
 .calculator {
   max-width: 400px;
-  margin: 50px auto;
-  background-color: #f5f5f5;
-  border-radius: 10px;
+  margin: 20px auto;
   padding: 20px;
+  border-radius: 12px;
+  background-color: #f5f5f5;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .calculator-display {
-  background-color: #fff;
-  border-radius: 5px;
+  background-color: #ffffff;
+  border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
-  text-align: right;
   font-size: 2.5rem;
-  font-weight: bold;
+  text-align: right;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
-  border: 1px solid #ddd;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .calculator-buttons {
@@ -28,16 +28,17 @@
 
 .calculator-button {
   padding: 20px;
-  font-size: 1.2rem;
-  border-radius: 5px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
   cursor: pointer;
-  border: none;
-  background-color: #e0e0e0;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .calculator-button:hover {
-  background-color: #d0d0d0;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .calculator-button.zero {
@@ -47,6 +48,7 @@
 .calculator-button.equal {
   background-color: #007bff;
   color: white;
+  border: none;
 }
 
 .calculator-button.equal:hover {
